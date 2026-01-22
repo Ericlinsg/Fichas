@@ -1,0 +1,13 @@
+{
+  "name": "Status",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "icon": "/logo.png",
+  "action": {
+    "title": "Status",
+    "icon": "https://ericlinsg.github.io/Status/logo.png",
+    "popover": "https://ericlinsg.github.io/Status/index.html",
+    "width": 168,
+    "height": 297
+  }
+}
