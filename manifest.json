@@ -5,8 +5,8 @@
   "icon": "/logo.png",
   "action": {
     "title": "Status",
-    "icon": "https://ericlinsg.github.io/Status/logo.png",
-    "popover": "https://ericlinsg.github.io/Status/index.html",
+    "icon": "https://ericlinsg.github.io/Fichas/logo.png",
+    "popover": "https://ericlinsg.github.io/Fichas/index.html",
     "width": 168,
     "height": 297
   }
