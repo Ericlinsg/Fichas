@@ -29,3 +29,18 @@ button {
 button:hover {
     background: #666;
 }
+#frameWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#frameWrapper iframe {
+  transform: scale(0.8);            /* 🔑 ZOOM OUT */
+  transform-origin: top left;
+  width: 125%;                      /* 1 / 0.8 */
+  height: 125%;
+}
