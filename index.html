@@ -1,15 +1,38 @@
-#frameWrapper {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Status</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-#frameWrapper iframe {
-  transform: scale(0.8);        /* 🔑 ZOOM OUT */
-  transform-origin: top left;
-  width: 125%;                  /* 1 / 0.8 */
-  height: 125%;
-}
+  <!-- BOTÕES -->
+  <div id="buttons">
+    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/15KcUk2EmTfuEzxtvHK8wNXlcxv5htuh_/edit?gid=1636579447')">
+      Boiye – Aba 1
+    </button>
+
+    <button onclick="openSheet('https://docs.google.com/spreadsheets/d/15KcUk2EmTfuEzxtvHK8wNXlcxv5htuh_/edit?gid=46550939')">
+      Boiye – Aba 2
+    </button>
+  </div>
+
+  <!-- IFRAME -->
+  <div id="frameWrapper">
+    <iframe
+      id="sheetFrame"
+      src=""
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <script>
+    function openSheet(url) {
+      document.getElementById("sheetFrame").src = url;
+    }
+  </script>
+
+</body>
+</html>
