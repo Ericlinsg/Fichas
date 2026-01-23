@@ -1,191 +1,50 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Status</title>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #1e1e1e;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      color: #fff;
-    }
+/* BOTÕES */
+#buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 6px;
+  background: #222;
+}
 
-    #menu {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      padding: 8px;
-      height: 100%;
-      overflow-y: auto;
-      box-sizing: border-box;
-    }
+#buttons button {
+  padding: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background: #444;
+  color: #fff;
+}
 
-    .char {
-      background: #2a2a2a;
-      border-radius: 6px;
-      padding: 6px;
-    }
+#buttons button:hover {
+  background: #666;
+}
 
-    .char-title {
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 6px;
-      font-size: 14px;
-    }
+/* WRAPPER DO IFRAME */
+#frameWrapper {
+  width: 100%;
+  height: calc(100% - 52px); /* espaço dos botões */
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 
-    .buttons {
-      display: flex;
-      gap: 6px;
-    }
-
-    button {
-      flex: 1;
-      padding: 6px;
-      font-size: 12px;
-      cursor: pointer;
-      border: none;
-      border-radius: 4px;
-      background: #444;
-      color: #fff;
-    }
-
-    button:hover {
-      background: #666;
-    }
-
-    #viewer {
-      display: none;
-      width: 100%;
-      height: 100%;
-    }
-
-    #topbar {
-      height: 32px;
-      background: #111;
-      display: flex;
-      align-items: center;
-      padding: 0 6px;
-      box-sizing: border-box;
-    }
-
-    #topbar button {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-
-    #frameWrapper {
-      width: 100%;
-      height: calc(100% - 32px);
-      overflow: hidden;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
-
-    #frameWrapper iframe {
-      transform: scale(0.8);
-      transform-origin: top left;
-      width: 125%;
-      height: 125%;
-      border: none;
-    }
-
-    @media (max-width: 600px) {
-      .char-title {
-        font-size: 13px;
-      }
-      button {
-        font-size: 11px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div id="menu">
-
-    <!-- BOIYE -->
-    <div class="char">
-      <div class="char-title">Boiye</div>
-      <div class="buttons">
-        <button onclick="openSheet(1636579447)">Ficha</button>
-        <button onclick="openSheet(46550939)">Status</button>
-      </div>
-    </div>
-
-    <!-- PERSONAGEM 2 -->
-    <div class="char">
-      <div class="char-title">Personagem 2</div>
-      <div class="buttons">
-        <button onclick="openSheet(921267563)">Ficha</button>
-        <button onclick="openSheet(64554907)">Status</button>
-      </div>
-    </div>
-
-    <!-- PERSONAGEM 3 -->
-    <div class="char">
-      <div class="char-title">Personagem 3</div>
-      <div class="buttons">
-        <button onclick="openSheet(1268377012)">Ficha</button>
-        <button onclick="openSheet(1098209164)">Status</button>
-      </div>
-    </div>
-
-    <!-- PERSONAGEM 4 -->
-    <div class="char">
-      <div class="char-title">Personagem 4</div>
-      <div class="buttons">
-        <button onclick="openSheet(1130374802)">Ficha</button>
-        <button onclick="openSheet(1341454747)">Status</button>
-      </div>
-    </div>
-
-    <!-- PERSONAGEM 5 -->
-    <div class="char">
-      <div class="char-title">Personagem 5</div>
-      <div class="buttons">
-        <button onclick="openSheet(798455952)">Ficha</button>
-        <button onclick="openSheet(969457394)">Status</button>
-      </div>
-    </div>
-
-  </div>
-
-  <div id="viewer">
-    <div id="topbar">
-      <button onclick="backToMenu()">⬅ Voltar</button>
-    </div>
-    <div id="frameWrapper">
-      <iframe id="sheetFrame"></iframe>
-    </div>
-  </div>
-
-  <script>
-    const SHEET_ID = "15KcUk2EmTfuEzxtvHK8wNXlcxv5htuh_";
-
-    function openSheet(gid) {
-      const url =
-        `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit?gid=${gid}`;
-
-      document.getElementById("sheetFrame").src = url;
-      document.getElementById("menu").style.display = "none";
-      document.getElementById("viewer").style.display = "block";
-    }
-
-    function backToMenu() {
-      document.getElementById("sheetFrame").src = "";
-      document.getElementById("viewer").style.display = "none";
-      document.getElementById("menu").style.display = "grid";
-    }
-  </script>
-
-</body>
-</html>
+/* ZOOM OUT DO GOOGLE SHEETS */
+#frameWrapper iframe {
+  transform: scale(0.8);        /* 🔑 ZOOM OUT */
+  transform-origin: top left;
+  width: 125%;                  /* 100 / 0.8 */
+  height: 125%;
+  border: none;
+}
