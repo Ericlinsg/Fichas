@@ -1,13 +1,13 @@
 {
-  "name": "Stats",
+  "name": "Status",
   "version": "1.0.0",
   "manifest_version": 1,
   "icon": "/logo.png",
   "action": {
-    "title": "Stats",
+    "title": "Status",
     "icon": "https://ericlinsg.github.io/Fichas/icone.png",
     "popover": "https://ericlinsg.github.io/Fichas/index.html",
     "width": 400,
-    "height": 1200
+    "height": 800
   }
 }
