@@ -28,6 +28,22 @@
       overflow-y: auto;
     }
 
+    .panel {
+      background: #3a3a3a;
+      border-radius: 6px;
+      padding: 8px;
+    }
+
+    .panel button {
+      width: 100%;
+      font-weight: bold;
+      background: #5a5a5a;
+    }
+
+    .panel button:hover {
+      background: #777;
+    }
+
     .char {
       background: #2a2a2a;
       border-radius: 6px;
@@ -115,6 +131,13 @@
 
   <!-- ===== MENU ===== -->
   <div id="menu">
+
+    <!-- PAINEL DE PERSONAGENS -->
+    <div class="panel">
+      <button onclick="openSheet(109737191)">
+        📋 Painel de Personagens
+      </button>
+    </div>
 
     <!-- BOIYE -->
     <div class="char">
