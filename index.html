@@ -82,13 +82,23 @@
       padding: 4px 8px;
     }
 
-    iframe {
+    #frameWrapper {
       width: 100%;
       height: calc(100% - 32px);
-      border: none;
+      overflow: hidden;
+      position: relative;
     }
 
-    /* ===== MOBILE AJUSTES ===== */
+    #frameWrapper iframe {
+      width: 200%;
+      height: 200%;
+      border: none;
+
+      transform: scale(0.5);
+      transform-origin: top left;
+    }
+
+    /* ===== MOBILE ===== */
     @media (max-width: 600px) {
       .char-title {
         font-size: 13px;
@@ -103,7 +113,7 @@
 
 <body>
 
-  <!-- ===== MENU INICIAL ===== -->
+  <!-- ===== MENU ===== -->
   <div id="menu">
 
     <!-- BOIYE -->
@@ -115,7 +125,7 @@
       </div>
     </div>
 
-    <!-- PERSONAGEM 2 (placeholder) -->
+    <!-- PERSONAGEM 2 -->
     <div class="char">
       <div class="char-title">Personagem 2</div>
       <div class="buttons">
@@ -124,7 +134,7 @@
       </div>
     </div>
 
-    <!-- PERSONAGEM 3 (placeholder) -->
+    <!-- PERSONAGEM 3 -->
     <div class="char">
       <div class="char-title">Personagem 3</div>
       <div class="buttons">
@@ -133,7 +143,7 @@
       </div>
     </div>
 
-    <!-- PERSONAGEM 4 (placeholder) -->
+    <!-- PERSONAGEM 4 -->
     <div class="char">
       <div class="char-title">Personagem 4</div>
       <div class="buttons">
@@ -142,7 +152,7 @@
       </div>
     </div>
 
-    <!-- PERSONAGEM 5 (placeholder) -->
+    <!-- PERSONAGEM 5 -->
     <div class="char">
       <div class="char-title">Personagem 5</div>
       <div class="buttons">
@@ -153,12 +163,17 @@
 
   </div>
 
-  <!-- ===== VISUALIZAÇÃO ===== -->
+  <!-- ===== VIEWER ===== -->
   <div id="viewer">
+
     <div id="topbar">
       <button onclick="backToMenu()">⬅ Voltar</button>
     </div>
-    <iframe id="sheetFrame"></iframe>
+
+    <div id="frameWrapper">
+      <iframe id="sheetFrame"></iframe>
+    </div>
+
   </div>
 
   <script>
