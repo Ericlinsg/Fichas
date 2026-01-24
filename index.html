@@ -69,7 +69,7 @@
     }
 
     #topbar {
-      height: 32px;
+      height: 22px; /* 🔽 menor que antes para ganhar área */
       background: #111;
       display: flex;
       align-items: center;
@@ -78,13 +78,13 @@
     }
 
     #topbar button {
-      font-size: 12px;
-      padding: 4px 8px;
+      font-size: 11px;
+      padding: 2px 6px;
     }
 
     #frameWrapper {
       width: 100%;
-      height: calc(100% - 32px);
+      height: calc(100% - 22px); /* 🔥 mais espaço para o iframe */
       overflow: hidden;
       position: relative;
     }
@@ -94,18 +94,19 @@
       height: 200%;
       border: none;
 
-      transform: scale(0.5);
+      transform: scale(0.33);
       transform-origin: top left;
     }
 
     /* ===== MOBILE ===== */
     @media (max-width: 600px) {
       .char-title {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       button {
-        font-size: 11px;
+        font-size: 10px;
+        padding: 4px;
       }
     }
   </style>
@@ -116,7 +117,6 @@
   <!-- ===== MENU ===== -->
   <div id="menu">
 
-    <!-- BOIYE -->
     <div class="char">
       <div class="char-title">Boiye</div>
       <div class="buttons">
@@ -125,25 +125,22 @@
       </div>
     </div>
 
-    <!-- PERSONAGEM 2 -->
     <div class="char">
-      <div class="char-title">Personagem x</div>
+      <div class="char-title">Personagem 2</div>
       <div class="buttons">
         <button onclick="openSheet(921267563)">Ficha</button>
         <button onclick="openSheet(64554907)">Status</button>
       </div>
     </div>
 
-    <!-- PERSONAGEM 3 -->
     <div class="char">
-      <div class="char-title">Personagem 3</div>
+      <div class="char-title">Personagem Y</div>
       <div class="buttons">
         <button onclick="openSheet(1268377012)">Ficha</button>
         <button onclick="openSheet(1098209164)">Status</button>
       </div>
     </div>
 
-    <!-- PERSONAGEM 4 -->
     <div class="char">
       <div class="char-title">Personagem 4</div>
       <div class="buttons">
@@ -152,7 +149,6 @@
       </div>
     </div>
 
-    <!-- PERSONAGEM 5 -->
     <div class="char">
       <div class="char-title">Personagem 5</div>
       <div class="buttons">
@@ -180,11 +176,6 @@
     const SHEET_ID = "15KcUk2EmTfuEzxtvHK8wNXlcxv5htuh_";
 
     function openSheet(gid) {
-      if (!gid || gid === 0) {
-        alert("GID ainda não configurado.");
-        return;
-      }
-
       const url =
         `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit?gid=${gid}`;
 
